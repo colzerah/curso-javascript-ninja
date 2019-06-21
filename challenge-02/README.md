@@ -78,8 +78,10 @@ Crie uma função com as seguintes características:
         return a + b;
     }else if(isNaN(a) == true && isNaN(b) == true && isNaN(c) == true){
         return false;
-    }else{
+    }else if (isNaN(a) == false && isNaN(b) == false && isNaN(c) == false{
          return (a + b) / c;
+    }else {
+        return null;
     }
  }
 
