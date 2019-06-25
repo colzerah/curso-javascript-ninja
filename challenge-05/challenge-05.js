@@ -60,12 +60,13 @@ propriedades:
 os livros.
 */
 function book(nomeLivro){
-    var livros ={
-        "Senhor dos Aneis" : {quantidadePaginas: 100, autor: "Tolkien" , editora: "Martins Fontes"},
-        "Assassins Creed" : {quantidadePaginas: 150, autor: "Oliver Bowden" , editora: "Penguin Books"},
-        "Game of thrones" : {quantidadePaginas: 999, autor: "George Martin" , editora: "Bantam"}
+    var livros = {
+        "Senhor dos Aneis": {quantidadePaginas: 100, autor: "Tolkien", editora: "Martins Fontes"},
+        "Assassins Creed": {quantidadePaginas: 150, autor: "Oliver Bowden", editora: "Penguin Books"},
+        "Game of thrones": {quantidadePaginas: 999, autor: "George Martin", editora: "Bantam"}
     }
     return !nomeLivro ? livros : livros[ nomeLivro ];
+}
 /*
 Usando a função criada acima, imprima o objeto com todos os livros.
 */
