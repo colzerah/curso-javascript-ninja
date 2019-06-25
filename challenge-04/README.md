@@ -7,15 +7,31 @@ um único parâmetro como argumento. Essa função deve retornar `true` se o
 equivalente booleano para o valor passado no argumento for `true`, ou `false`
 para o contrário.
 */
-?
+var isTruthy = function(a){
+    return a ? true : false; 
+}
 
 // Invoque a função criada acima, passando todos os tipos de valores `falsy`.
-?
-
+isTruphy(undefined);
+isTruphy(0);
+isTruphy(-0);
+isTruphy(null);
+isTruphy(NaN);
+isTruphy("");
+isTruphy(false);
 /*
 Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
 */
-?
+isTruphy("Dyego");
+isTruphy(10);
+isTruphy("Claudiane");
+isTruphy("   ");
+isTruphy(-100);
+isTruphy(true);
+isTruphy(10.10);
+isTruphy(-100,10);
+isTruphy("M");
+isTruphy(1000000);
 
 /*
 Declare uma variável chamada `carro`, atribuindo à ela um objeto com as
@@ -29,35 +45,55 @@ seguintes propriedades (os valores devem ser do tipo mostrado abaixo):
 - `assentos` - Number - cinco por padrão
 - `quantidadePessoas` - Number - zero por padrão
 */
-?
+var carro = {
+	marca: "Opola",
+    modelo: "Especial",
+    placa: "AVA 6669",
+    ano: 1874,
+    cor: "Vermelho",
+    quantasPortas: 4,
+    assentos: 5,
+    quantidadePessoas: 0
+}
 
 /*
 Crie um método chamado `mudarCor` que mude a cor do carro conforme a cor
 passado por parâmetro.
 */
-?
+carro.mudarCor = function(cor){
+    return carro.cor = cor;
+}
 
 /*
 Crie um método chamado `obterCor`, que retorne a cor do carro.
 */
-?
+carro.obterCor = function(){
+    return carro.cor;
+}
+
 
 /*
 Crie um método chamado `obterModelo` que retorne o modelo do carro.
 */
-?
+carro.obterModelo = function(){
+    return carro.modelo;
+}
 
 /*
 Crie um método chamado `obterMarca` que retorne a marca do carro.
 */
-?
+carro.obterMarca = function(){
+    return carro.marca;
+}
 
 /*
 Crie um método chamado `obterMarcaModelo`, que retorne:
 "Esse carro é um [MARCA] [MODELO]"
 Para retornar os valores de marca e modelo, utilize os métodos criados.
 */
-?
+carro.obterMarcaModelo = function(){
+    return "Esse carro é um " + carro.obterMarca() + " " + carro.obterModelo();
+}
 
 /*
 Crie um método que irá adicionar pessoas no carro. Esse método terá as
@@ -75,7 +111,21 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 - Se couber somente mais uma pessoa, mostrar a palavra "pessoa" no retorno
 citado acima, no lugar de "pessoas".
 */
-?
+carro.addPassageiro = function(passageiro){
+	var totalPassageiro = passageiro + carro.quantidadePessoas;
+        if(carro.quantidadePessoas === carro.assentos){
+			return "O carro já está lotado!";
+		}
+        
+        if(totalPassageiro > carro.assentos){
+			var pessoa = carro.quantidadePessoas == 4 ? "pessoa" : "pessoas";
+			return "Só cabem mais " + (carro.assentos - carro.quantidadePessoas) + " " + pessoa;
+        }
+        
+	carro.quantidadePessoas = totalPassageiro;
+	var pessoa = totalPassageiro > 1 ? "pessoas" : "pessoa";
+	return "Já temos " + totalPassageiro + " " + pessoa + " no carro!";
+	}
 
 /*
 Agora vamos verificar algumas informações do carro. Para as respostas abaixo,
@@ -85,38 +135,38 @@ retornar algum valor.
 
 Qual a cor atual do carro?
 */
-?
+carro.obterCor(); // "Vermelho"
 
 // Mude a cor do carro para vermelho.
-?
+carro.mudarCor("Azul");
 
 // E agora, qual a cor do carro?
-?
+carro.obter(); // "Azul"
 
 // Mude a cor do carro para verde musgo.
-?
+carro.mudarCor("verde musgo");
 
 // E agora, qual a cor do carro?
-?
+carro.obterCor(); // "verde musgo"
 
 // Qual a marca e modelo do carro?
-?
+obterMarcaModelo(); // "Esse carro é um Opola Especial"
 
 // Adicione 2 pessoas no carro.
-?
+carro.addPassageiro(2); // "Já temos 2 pessoas no carro!"
 
 // Adicione mais 4 pessoas no carro.
-?
+carro.addPassageiro(4); // "Só cabem mais 3 pessoas"
 
 // Faça o carro encher.
-?
+carro.addPassageiro(3); // "Já temos 5 pessoas no carro!"
 
 // Tire 4 pessoas do carro.
-?
+carro.addPassageiro(-4); // "Já temos 1 pessoa no carro!"
 
 // Adicione 10 pessoas no carro.
-?
+carro.addPassageiro(10); // "Só cabem mais 4 pessoas"
 
 // Quantas pessoas temos no carro?
-?
+carro.quantidadePessoas; // 1
 ```
