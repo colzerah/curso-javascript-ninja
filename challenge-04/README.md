@@ -25,7 +25,7 @@ Invoque a função criada acima passando como parâmetro 10 valores `truthy`.
 isTruphy("Dyego");
 isTruphy(10);
 isTruphy("Claudiane");
-isTruphy("   ");
+isTruphy("  ");
 isTruphy(-100);
 isTruphy(true);
 isTruphy(10.10);
@@ -169,4 +169,5 @@ carro.addPassageiro(10); // "Só cabem mais 4 pessoas"
 
 // Quantas pessoas temos no carro?
 carro.quantidadePessoas; // 1
+
 ```
