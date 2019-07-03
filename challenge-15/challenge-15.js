@@ -1,3 +1,4 @@
+(function(){
 /*
 Envolva todo o código desse desafio em uma IIFE.
 Crie um arquivo chamado index.html e adicione esse script ao HTML.
@@ -21,7 +22,15 @@ as seguintes características:
   adicionados à idade original (age). Esse método deverá retornar o objeto
   que será instanciado.
 */
-// ?
+function Person (name, lastName, age){
+    this.name = name;
+    this.lastName = lastName;
+    this.age = age;
+    this.getFullName = function(){return this.name + " " + this.lastName};
+    this.getAge = function(){return this.age};
+    this.addAge = function(){return this.age += arguments[0]};
+
+}
 
 /*
 Crie 3 novos objetos usando o construtor acima. Os objetos serão novas
@@ -30,25 +39,38 @@ parâmetros corretamente para o construtor para criar as novas pessoas.
 Mostre as 3 novas pessoas criadas no console (Um console.log por pessoa).
 */
 console.log( 'Novas pessoas criadas à partir de Person:' );
-// ?
-
+var dyego = new Person("Dyego", "Lima", 31);
+console.log(dyego.name);
+var douglas = new Person("Douglas", "Lima", 28);
+console.log(douglas.name);
+var danyelle = new Person("Danyelle", "Lima", 26);
+console.log(danyelle.name);
 /*
 Mostre no console o nome completo de cada pessoa.
 */
 console.log( '\nNomes das pessoas:' );
-// ?
+console.log(dyego.getFullName());
+console.log(douglas.getFullName());
+console.log(danyelle.getFullName());
 
 /*
 Mostre no console as idades de cada pessoa, com a frase:
 - "[NOME COMPLETO] tem [IDADE] anos."
 */
 console.log( '\nIdade das pessoas:' );
-// ?
-
+console.log(dyego.getFullName() + ' tem ' + dyego.getAge() + " anos.");
+console.log(douglas.getFullName() + ' tem ' + douglas.getAge() + " anos.");
+console.log(danyelle.getFullName() + ' tem ' + danyelle.getAge() + " anos.");
 /*
 Adicione alguns anos à cada pessoa, e mostre no console a nova idade de
 cada um. A frase deverá ser no formato:
 - "[NOME COMPLETO] agora tem [NOVA IDADE] anos."
 */
 console.log( '\nNova idade das pessoas:' );
-// ?
+dyego.addAge(5);
+console.log(dyego.getFullName() + " agora tem " + dyego.getAge());
+douglas.addAge(10);
+console.log(douglas.getFullName() + " agora tem " + douglas.getAge());
+danyelle.addAge(30);
+console.log(danyelle.getFullName() + " agora tem " + danyelle.getAge());
+})();
