@@ -1,3 +1,6 @@
+(function(){
+'use strict'
+
 /*
 1. Envolva todo o conteúdo desse desafio em uma IIFE.
 2. Adicione a diretiva 'use strict';
@@ -14,8 +17,10 @@ Ex: no caso do nome ser "Fernando", deve mostrar as frases:
 E assim por diante, até a última.
 */
 console.log( 'As letras do seu nome:' );
-// ?
-
+var name = "Dyego";
+for(var i = 0; i < name.length; i++){
+    console.log(name.charAt(i) + " é a " + (i+1) + "º letra do meu nome.");
+}
 /*
 - Declare uma variável chamada `fullName`, que receba seu nome completo,
 escrito no formato de slug (caixa baixa e palavras separadas por um traço).
@@ -29,7 +34,11 @@ curso para fazer isso funcionar corretamente :)
 console.log para cada formato.
 */
 console.log( '\nNome convertido à partir de um slug:' );
-// ?
+var fullName = "dyego-tavares-lima";
+console.log(fullName);
+console.log(fullName.split("-").slice(0).map(function(item){
+    return item[0].toUpperCase() + item.substring(1);
+}).join(" "));
 
 /*
 - Crie um array com 5 nomes. Reduza esses nomes a uma única string, separando
@@ -41,21 +50,21 @@ O resultado final deve ficar mais ou menos assim:
 5 nomes foi somente uma sugestão ;)
 */
 console.log( '\nMeus amigos:' );
-// ?
-
+var arr = ["Joao", "Roberto", "José", "Matias", "Givalda"];
+console.log(arr.reverse().toString().replace(",", " e ").split(",").reverse().join(", ") + " são meus amigos.");
 /*
 Usando o replace(), faça a string "Roberto" virar "Roberta".
 Mostre o resultado no console.
 */
 console.log( '\nEra "Roberto", agora é:' );
-// ?
-
+console.log("Roberto".replace("o", "a").replace("o", "a").replace("a", "o"));
+console.log("Roberto".replace("Roberto", "Roberta")); //outra forma
 /*
 Mostre no console a parte "nando" da string "Fernando". Use o método que
 faz a busca do final para o início da string.
 */
 console.log( '\nParte de uma string:' );
-// ?
+console.log("Fernando".substring(3));
 
 /*
 Declare uma variável chamada `myName`, que receba o seu primeiro nome,
@@ -67,4 +76,18 @@ de qualquer tamanho, escrito de qualquer forma.
 Ex.: Nomes que deveriam funcionar: "Fernando", "RoBertO", "gabriEla", etc.
 */
 console.log( '\nNome com letras intercaladas entre caixa alta e baixa:' );
-// ?
+
+var myName = "Dyego";
+var myNameInterleaved = [];
+for(var i = 0; i < myName.length; i++){
+    if(i % 2 === 0 ){
+        myNameInterleaved.push(myName[i].toLowerCase());
+    }else{
+        myNameInterleaved.push(myName[i].toUpperCase());
+    }
+}
+
+myName = myNameInterleaved.join();
+console.log(myName);
+
+})();
