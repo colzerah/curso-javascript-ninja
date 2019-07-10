@@ -84,5 +84,15 @@ para exemplificar.
 */
 var markup = '<main>\n  <div class="container">\n    <span class="text date"></span>\n    <p class=\'excerpt\'></p>\n  </div>\n</main>';
 console.log( '\nQuais classes CSS existem na marcação abaixo?\n\n', markup, '\n' );
-// ?
+
+function hasClass(markup, cssClass){
+        var regex = new RegExp('class=["\']' + cssClass + '["\']');       
+          return regex.test(markup);
+      
+}
+console.log(hasClass(markup, 'container') + ' para a classe container' );
+console.log(hasClass(markup, 'text') + ' para a classe text' );
+console.log(hasClass(markup, 'date') + ' para a classe date' );
+console.log(hasClass(markup, 'excerpt') + ' para a classe excerpt' );
+
 })();
