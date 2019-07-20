@@ -29,7 +29,6 @@ Array.prototype.forEach.call($buttonsOperations, function(button) {
     handleClickOperation.preventDefault();
     $visor.value = removeLastItemIfItIsAnOperator($visor.value);
     $visor.value += this.value;
-
 })});
 
 $buttonCE.addEventListener('click', handleClickCE, false);
