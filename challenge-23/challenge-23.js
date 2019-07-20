@@ -1,3 +1,5 @@
+(function(win, doc){
+  'use strict'
 /*
 Vamos desenvolver mais um projeto. A ideia é fazer uma mini-calculadora.
 As regras são:
@@ -23,3 +25,146 @@ multiplicação (x), então no input deve aparecer "1+2x".
 input;
 - Ao pressionar o botão "CE", o input deve ficar zerado.
 */
+
+var $inputSum = doc.querySelector('[data-js="sum"]');
+var $inputSubtraction = doc.querySelector('[data-js="subtration"]');
+var $inputMultiplication = doc.querySelector('[data-js="multiplication"]');
+var $inputDivision = doc.querySelector('[data-js="division"]');
+
+var $inputCE = doc.querySelector('[data-js="ce"]');
+var $inputResult = doc.querySelector('[data-js="result"]');
+var $inputVisor = doc.querySelector('[data-js="tela"]');
+
+var $input0 = doc.querySelector('[data-js="00"]');
+var $input01 = doc.querySelector('[data-js="01"]');
+var $input02 = doc.querySelector('[data-js="02"]');
+var $input03 = doc.querySelector('[data-js="03"]');
+var $input04 = doc.querySelector('[data-js="04"]');
+var $input05 = doc.querySelector('[data-js="05"]');
+var $input06 = doc.querySelector('[data-js="06"]');
+var $input07 = doc.querySelector('[data-js="07"]');
+var $input08 = doc.querySelector('[data-js="08"]');
+var $input09 = doc.querySelector('[data-js="09"]');
+
+
+var visor = "";
+var arrOperator = ['+', '-', 'x', '÷'];
+
+
+function screenViewOperador(operator){
+    if(arrOperator.some(function(item){
+       return item === (visor.slice(-1));
+    })){
+      visor = visor.slice(0,-1);
+    }
+     visor += operator;
+     screenView();
+}
+
+function screenView(){
+   $inputVisor.value = visor;
+
+}
+
+$inputCE.addEventListener('click', function(event){
+  event.preventDefault();
+  visor = '';
+  $inputVisor.value = 0;
+});
+
+$inputResult.addEventListener('click', function(event){
+  event.preventDefault();
+  visor = visor.replace(/÷/g, '/');
+  visor = visor.replace(/x/g, '*');
+  if(visor.match(/[+*/-]$/g) !== null)
+    visor = visor.slice(0, -1);
+  visor =  eval(visor).toString();
+  screenView();
+});
+
+
+$inputSum.addEventListener('click', function(event){
+  event.preventDefault();
+  screenViewOperador(arrOperator[0]);
+
+});
+
+$inputSubtraction.addEventListener('click', function(event){
+  event.preventDefault();
+  screenViewOperador(arrOperator[1]);
+});
+
+$inputMultiplication.addEventListener('click', function(event){
+  event.preventDefault();
+  screenViewOperador(arrOperator[2]);
+});
+
+$inputDivision.addEventListener('click', function(event){
+  event.preventDefault();
+  screenViewOperador(arrOperator[3]);
+})
+
+
+
+$input0.addEventListener('click', function(event){
+  event.preventDefault();
+  visor += '0';
+  screenView();
+});
+
+$input01.addEventListener('click', function(event){
+  event.preventDefault();
+  visor += '1';
+  screenView();
+});
+
+$input02.addEventListener('click', function(event){
+  event.preventDefault();
+  visor += '2';
+  screenView();
+
+});
+
+$input03.addEventListener('click', function(event){
+  event.preventDefault();
+  visor += '3';
+  screenView();
+});
+
+$input04.addEventListener('click', function(event){
+  event.preventDefault();
+  visor += '4'
+  screenView();
+});
+
+$input05.addEventListener('click', function(event){
+  event.preventDefault();
+  visor += '5';
+  screenView();
+});
+
+$input06.addEventListener('click', function(event){
+  event.preventDefault();
+  visor += '6';
+  screenView();
+});
+
+$input07.addEventListener('click', function(event){
+  event.preventDefault();
+  visor += '7';
+  screenView();
+});
+
+$input08.addEventListener('click', function(event){
+  event.preventDefault();
+  visor += '8';
+  screenView();
+});
+
+$input09.addEventListener('click', function(event){
+  event.preventDefault();
+  visor += '9';
+  screenView();
+});
+
+})(window, document);
