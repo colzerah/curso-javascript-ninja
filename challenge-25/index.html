@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Challenge 25 - Eventos</title>
+</head>
+<body>
+
+  <input type="text" value="0" readonly data-js="visor">
+  <div class="buttons-numbers">
+    <h3>Eventos de Clique</h3>
+    <button data-js="button-number-1" value="Clique">Click</button>
+    <button data-js="button-number-2" value="Dois cliques">Double Click</button>
+    <button data-js="button-number-3" value="Mouse Down">Mouse Down</button>
+    <button data-js="button-number-4" value="Mouse Move">Mouse Move</button>
+    <button data-js="button-number-5" value="Mouse Seout">Mouse Seout</button>
+    <button data-js="button-number-6" value="Mouse Seover">Mouse Seover</button>
+    <button data-js="button-number-7" value="Mouse Up">Mouse Up</button>
+    <button data-js="button-number-8" value="Mouse Wheel">Mouse Wheel</button>
+
+  </div>
+  <div>
+    <h3>Eventos de Teclado</h3>
+    <input type="text" value="KeyDown and keyUP" data-js="keydown">
+    <input type="text" value="KeyPress" data-js="keypress">
+  </div>
+  <div>
+    <h3>Eventos de Formulario</h3>
+      <form>
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" data-js="name"/>
+        </div>
+      </form>
+  </div>
+  <div>
+    <p>Selecione o Personagem</p>
+    <select data-js="change">
+      <option value="Meliodas">Meliodas
+      <option value="Bam">Bam
+      <option value="Scanor">Scanor
+      <option value="King">King
+    </select>
+    <p data-js="change2"></p>
+  </div>
+  <div>
+      Player 1: <input type="text" data-js="player"><br><br>
+      Player 2: <input type="text" data-js="player"><br><br>
+  </div>
+  <div>
+      Escreva algo: <input type="text" data-js="entrada"><br>
+      <p id="saida"></p>
+  </div>
+  <div>
+      <p>Clicando em Submit sem preencher da alerta!</p>
+      Name: <input type="text" data-js="invalidname" required>
+      <input type="submit" value="Submit">
+  </div>
+  <div>
+      <form data-js="reseta">
+        <p>Redefinindo Formulario</p>
+        Preencha o Nome: <input type="text" >
+        <input type="reset">
+      </form><br>
+  </div>
+  <div>
+      <input type="search" data-js="search">
+      <p id="testSearch"></p>
+  </div>
+  <div>
+      <input type="text" value="Selecione o Texto" data-js="selectme">
+  </div><br>
+  <div>
+      <form data-js="submitTest">
+        <input type="text">
+        <input type="submit" value="submit">
+      </form>
+  </div>
+  <div>
+    <h1>Eventos de Transferencia </h1>
+      <input type="text" data-js="textCopy" value="Copie o Texto">
+      <p id="textCopy2"></p>
+  </div>
+
+
+  <script src="challenge-25.js"></script>
+</body>
+</html>
