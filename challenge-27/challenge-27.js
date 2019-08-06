@@ -1,3 +1,5 @@
+(function(){
+  'use strict';
 /*
 Aproveitando a lib DOM que fizemos na semana anterior, crie agora para ela
 métodos semelhantes aos que existem no array, mas que sirvam para os
@@ -19,3 +21,124 @@ Crie os seguintes métodos para verificação de tipo:
 - isArray, isObject, isFunction, isNumber, isString, isBoolean, isNull.
 O método isNull deve retornar `true` se o valor for null ou undefined.
 */
+
+function DOM(elements){
+  this.element = this.getDOMElements(elements);
+}
+
+DOM.prototype.getDOMElements = function getDOMElements(elements){
+  return document.querySelectorAll(elements);
+};
+
+DOM.prototype.on = function(eventType, callback){
+  Array.prototype.forEach.call(this.element, function(element){
+    element.addEventListener(eventType, callback)
+  });
+};
+
+DOM.prototype.off = function(eventType, callback){
+  Array.prototype.forEach.call(this.element, function(element){
+    element.removeEventListener(eventType, callback)
+  });
+};
+
+DOM.prototype.get = function(){
+  return this.element;
+};
+
+// Métodos  - forEach, map, filter, reduce, reduceRight, every e some.
+DOM.prototype.forEach = function forEach(){
+  return Array.prototype.forEach.apply(this.element, arguments);
+};
+
+DOM.prototype.map = function map(){
+  return Array.prototype.map.apply(this.element, arguments);
+};
+
+DOM.prototype.filter = function filter(){
+  return Array.prototype.filter.apply(this.element, arguments);
+};
+
+DOM.prototype.reduce = function reduce(){
+  return Array.prototype.reduce.apply(this.element, arguments);
+};
+
+DOM.prototype.reduceRight = function reduceRight(){
+  return Array.prototype.reduceRight.apply(this.element, arguments);
+};
+
+DOM.prototype.every = function every(){
+  return Array.prototype.every.apply(this.element, arguments);
+};
+
+DOM.prototype.some = function some(){
+  return Array.prototype.some.apply(this.element, arguments);
+};
+
+// Métodos isArray, isObject, isFunction, isNumber, isString, isBoolean, isNull.
+DOM.prototype.isArray = function(args){
+  return Object.prototype.toString.call(args) === '[object Array]';
+}
+
+DOM.prototype.isFunction = function(args){
+  return Object.prototype.toString.call(args) === '[object Function]';
+};
+
+DOM.prototype.isNumber = function(args){
+  return Object.prototype.toString.call(args) === '[object Number]';
+};
+
+DOM.prototype.isString = function(args){
+  return Object.prototype.toString.call(args) === '[object String]';
+};
+
+DOM.prototype.isBoolean = function(args){
+  return Object.prototype.toString.call(args) === '[object Boolean]';
+};
+
+DOM.prototype.isNull = function(args){
+  return Object.prototype.toString.call(args) === '[object Null]' ||
+         Object.prototype.toString.call(args) === '[object Undefined]';
+};
+
+
+
+var $a = new DOM('[data-js="link"]');
+
+$a.forEach(function(item, index, arry){
+  console.log(item);
+});
+
+$a.map(function(item, index, arr){
+  console.log(item)
+});
+
+$a.filter(function(item, index, arr){
+  console.log(item)
+});
+
+$a.reduce(function(acum, item, index, arr){
+  console.log(item)
+});
+
+$a.reduceRight(function(acum, item, index, arr){
+  console.log(item)
+});
+
+$a.every(function(item, index, arr){
+  console.log(item)
+});
+
+$a.some(function(item, index, arr){
+  console.log(item)
+});
+
+console.log($a.isArray([1, 2, 3, 4]));
+console.log($a.isFunction(function(){}));
+console.log($a.isNumber(1010));
+console.log($a.isString('Dyego'));
+console.log($a.isBoolean(false));
+console.log($a.isNull(null));
+console.log($a.isNull());
+
+})();
