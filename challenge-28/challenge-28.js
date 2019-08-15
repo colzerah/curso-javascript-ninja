@@ -180,4 +180,5 @@ DOM.prototype.isNull = function(args){
     }
   }
 
+
 })()
