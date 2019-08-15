@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Challenge 28</title>
+    <style>
+      .droptarget {
+        float: left;
+        width: 100px;
+        height: 35px;
+        margin: 15px;
+        padding: 20px;
+        border: 1px solid black;
+
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" data-js="input-cep">
+    <button type="submit" data-js="submit">Consultar</button>
+      <div>
+        <h3 data-js="status">Status:</h3>
+        <form>
+         Logradouro: <span data-js="logradouro"></span><br>
+         Bairro: <span data-js="bairro"></span><br>
+         Estado: <span data-js="estado"></span><br>
+         Cidade: <span data-js="cidade"></span><br>
+         CEP: <span data-js="cep"></span><br>
+        </form>
+     </div>
+  <script src="challenge-28.js"></script>
+  </body>
+</html>
